@@ -3,19 +3,16 @@ package com.driver;
 public class Pizza {
 
     private int price;
-    private Boolean isVeg;
-//    private String bill;
-    private int billInt=0;
-
-    public void setBillInt(int billInt) {
-        this.billInt = billInt;
-    }
-
-    public int getBillInt() {
-        return billInt;
-    }
+    private boolean isVeg;
+    private int bill;
+    private Boolean isCheeseAdded;
+    private boolean isToppingsAdded;
+    private boolean isTakeaway;
 
     public Pizza(Boolean isVeg){
+        this.isCheeseAdded = false;
+        this.isToppingsAdded = false;
+        this.isTakeaway = false;
         this.isVeg = isVeg;
 
         // your code goes here
@@ -23,41 +20,47 @@ public class Pizza {
             this.price= 300;
         else
             this.price = 400;
-        billInt += price;
     }
 
     public int getPrice(){
+        if(isCheeseAdded) return bill+ price;
         return this.price;
     }
-    private int flagC = 0;
+
     public void addExtraCheese(){
         // your code goes here
-        if(flagC==0){
-            billInt += 80;
-            flagC = 1;
+        if(!isCheeseAdded){
+            bill += 80;
+            isCheeseAdded = true;
         }
     }
-
-    private int flagT = 0;
     public void addExtraToppings(){
         // your code goes here
-        if(flagT==0){
-            if(isVeg) billInt += 70;
-            else billInt += 120;
-            flagT=1;
+        if(!isToppingsAdded){
+            if(isVeg) bill += 70;
+            else bill += 120;
+            isToppingsAdded = true;
         }
     }
-    private int flagA = 0;
     public void addTakeaway(){
         // your code goes here
-        if(flagA ==0) {
-            billInt += 20;
-            flagA =1;
+        if(!isTakeaway) {
+            bill += 20;
+            isTakeaway = true;
         }
     }
 
     public String getBill(){
         // your code goes here
-        return Integer.toString(billInt);
+        bill += this.price;
+        System.out.println("Base Price Of The Pizza: "+ this.price);
+
+        if(isCheeseAdded) System.out.println("Extra Cheese Added: 80");
+
+        if(isToppingsAdded) System.out.println("Extra Toppings Added: "+ (isVeg? 70:120));
+
+        if(isTakeaway) System.out.println("Paperbag Added: 20");
+
+        return "Total Price: " +Integer.toString(bill);
     }
 }
