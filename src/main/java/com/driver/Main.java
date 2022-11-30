@@ -4,7 +4,7 @@ public class Main {
   public static void main(String[] args) {
 
     Pizza p = new Pizza(false);
-//    p.addExtraCheese();
+    p.addExtraCheese();
     System.out.println(p.getPrice());
     p.addExtraToppings();
     System.out.println(p.getPrice());

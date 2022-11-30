@@ -60,6 +60,6 @@ public class Pizza {
 
         if(isTakeaway) System.out.println("Paperbag Added: 20");
 
-        return "Total Price: " + getPrice();
+        return "Total Price: " + getPrice()+"\n";
     }
 }
