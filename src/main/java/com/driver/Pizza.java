@@ -54,11 +54,11 @@ public class Pizza {
         // your code goes here
         this.bill = "Base Price Of The Pizza: "+ (isVeg? 300:400)+"\n";
 
-        if(isCheeseAdded) this.bill += "Extra Cheese Added: 80 \n";
+        if(isCheeseAdded) this.bill += "Extra Cheese Added: 80\n";
 
         if(isToppingsAdded) this.bill += "Extra Toppings Added: "+ (isVeg? 70:120)+"\n";
 
-        if(isTakeaway) this.bill += "Paperbag Added: 20 \n";
+        if(isTakeaway) this.bill += "Paperbag Added: 20\n";
 
         this.bill += "Total Price: " + getPrice()+"\n";
 
